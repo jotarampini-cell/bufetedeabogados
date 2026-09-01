@@ -306,14 +306,14 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
     </div>
     <div data-anim style="border-top:1px solid rgba(14,17,22,.16)">
       <style>
-        .acc-item { border-bottom:1px solid rgba(14,17,22,.16); transition:background .4s; }
+        .acc-item { border-bottom:1px solid rgba(14,17,22,.16); transition:background .4s; cursor:pointer; -webkit-tap-highlight-color:transparent; }
         .acc-item:hover { background: rgba(255,255,255,.7); }
         .acc-item.active .acc-icon { transform: rotate(180deg); }
         .acc-item.active .acc-body { grid-template-rows: 1fr; }
-        .acc-body { display:grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .acc-body { display:grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(0.2, 0.8, 0.2, 1); cursor:default; }
       </style>
       <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
-        <div class="acc-item" onclick="this.classList.toggle('active')">
+        <div class="acc-item">
           <div style="display:flex;align-items:center;gap:20px;padding:34px 0;cursor:pointer">
             <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;color:rgba(14,17,22,.32);flex:0 0 60px">{{ a.n }}</span>
             <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(20px,2.3vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0;flex:1">{{ a.t }}</h3>
@@ -334,7 +334,7 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
     </div>
     <div data-anim style="margin-top:90px">
       <sc-for list="{{ fases }}" as="f" hint-placeholder-count="4">
-        <div class="acc-item" onclick="this.classList.toggle('active')">
+        <div class="acc-item">
           <div style="display:flex;align-items:center;gap:20px;padding:24px 0;cursor:pointer">
             <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:24px;color:rgba(14,17,22,.2);flex:0 0 40px">{{ f.n }}</span>
             <h4 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;margin:0;flex:1">{{ f.t }}</h4>
@@ -772,6 +772,14 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+<script>
+  document.addEventListener('click', function(e) {
+    var accItem = e.target.closest('.acc-item');
+    if (accItem && !e.target.closest('a')) {
+      accItem.classList.toggle('active');
+    }
+  });
 </script>
 </body>
 </html>
