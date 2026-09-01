@@ -288,40 +288,50 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
     </div>
     <div data-anim style="border-top:1px solid rgba(14,17,22,.16)">
       <style>
-        details > summary { list-style: none; outline: none; }
-        details > summary::-webkit-details-marker { display: none; }
-        details[open] .accordion-icon { transform: rotate(180deg); }
+        .acc-item { border-bottom:1px solid rgba(14,17,22,.16); transition:background .4s; }
+        .acc-item:hover { background: rgba(255,255,255,.7); }
+        .acc-item.active .acc-icon { transform: rotate(180deg); }
+        .acc-item.active .acc-body { grid-template-rows: 1fr; }
+        .acc-body { display:grid; grid-template-rows: 0fr; transition: grid-template-rows .5s cubic-bezier(0.2, 0.8, 0.2, 1); }
       </style>
       <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
-        <details style="border-bottom:1px solid rgba(14,17,22,.16);transition:background .4s" style-hover="background:rgba(255,255,255,.7)">
-          <summary style="display:flex;align-items:center;gap:20px;padding:34px 0;cursor:pointer">
+        <div class="acc-item" onclick="this.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:20px;padding:34px 0;cursor:pointer">
             <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;color:rgba(14,17,22,.32);flex:0 0 60px">{{ a.n }}</span>
             <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(20px,2.3vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0;flex:1">{{ a.t }}</h3>
-            <div class="accordion-icon" style="transition:transform .3s;color:#0E1116">
+            <div class="acc-icon" style="transition:transform .5s cubic-bezier(0.2,0.8,0.2,1);color:#0E1116">
               <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M19 9l-7 7-7-7"/></svg>
             </div>
-          </summary>
-          <div style="padding:0 0 44px 80px;margin-top:-10px" class="mobile-accordion-content">
-            <p style="font-size:15px;font-weight:300;line-height:1.75;color:#5C636E;margin:0 0 24px;max-width:700px">{{ a.d }}</p>
-            <a href="{{ waCita }}" target="_blank" rel="noopener" style="font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#8E2B2B;text-decoration:none;display:inline-flex;align-items:center;gap:8px" style-hover="color:#A63A3A">Agendar Consulta <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
-        </details>
+          <div class="acc-body">
+            <div style="overflow:hidden">
+              <div style="padding:0 0 44px 80px;margin-top:-10px">
+                <p style="font-size:15px;font-weight:300;line-height:1.75;color:#5C636E;margin:0 0 24px;max-width:700px">{{ a.d }}</p>
+                <a href="{{ waCita }}" target="_blank" rel="noopener" style="font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#8E2B2B;text-decoration:none;display:inline-flex;align-items:center;gap:8px" style-hover="color:#A63A3A" onclick="event.stopPropagation()">Agendar Consulta <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </sc-for>
     </div>
     <div data-anim style="margin-top:90px">
       <sc-for list="{{ fases }}" as="f" hint-placeholder-count="4">
-        <details style="border-bottom:1px solid rgba(14,17,22,.16);transition:background .4s" style-hover="background:rgba(255,255,255,.7)">
-          <summary style="display:flex;align-items:center;gap:20px;padding:24px 0;cursor:pointer">
+        <div class="acc-item" onclick="this.classList.toggle('active')">
+          <div style="display:flex;align-items:center;gap:20px;padding:24px 0;cursor:pointer">
             <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:24px;color:rgba(14,17,22,.2);flex:0 0 40px">{{ f.n }}</span>
             <h4 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;margin:0;flex:1">{{ f.t }}</h4>
-            <div class="accordion-icon" style="transition:transform .3s;color:#0E1116">
+            <div class="acc-icon" style="transition:transform .5s cubic-bezier(0.2,0.8,0.2,1);color:#0E1116">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M19 9l-7 7-7-7"/></svg>
             </div>
-          </summary>
-          <div style="padding:0 0 34px 60px;margin-top:-6px" class="mobile-accordion-content">
-            <p style="font-size:14.5px;font-weight:300;line-height:1.7;color:#5C636E;margin:0">{{ f.d }}</p>
           </div>
-        </details>
+          <div class="acc-body">
+            <div style="overflow:hidden">
+              <div style="padding:0 0 34px 60px;margin-top:-6px">
+                <p style="font-size:14.5px;font-weight:300;line-height:1.7;color:#5C636E;margin:0">{{ f.d }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </sc-for>
     </div>
   </div>
