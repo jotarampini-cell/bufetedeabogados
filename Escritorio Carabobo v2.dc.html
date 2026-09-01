@@ -38,22 +38,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 [data-r="g2"]{grid-template-columns:1fr!important;gap:48px!important}
 [data-r="row"]{grid-template-columns:1fr!important;gap:14px!important}
 }
-@media (max-width:1100px){
-[data-r="nav"] a:not(:last-child){display:none!important}
-[data-r="g4"],[data-r="g3"]{grid-template-columns:repeat(2,1fr)!important}
-[data-r="g2"]{grid-template-columns:1fr!important;gap:48px!important}
-[data-r="row"]{grid-template-columns:1fr!important;gap:14px!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
-@media (max-width:1100px){
+@media (max-width:1024px){
+[data-r="g4"]{grid-template-columns:1fr 1fr!important}
+[data-r="g2"]{grid-template-columns:1fr!important;gap:40px!important}
+[data-r="pad"]{padding:100px 40px!important}
 [data-r="menu-btn"]{display:flex!important}
-[data-r="nav"]{display:none!important}
-}
-@media (max-width:520px){
-[data-r="menu-btn"] span[style*="letter-spacing:.18em"]{display:none!important}
+nav[data-r="menu"]{display:none!important}
+[data-r="heroPad"]{align-items:flex-start!important}
 }
 @media (max-width:680px){
 [data-r="g4"],[data-r="g3"]{grid-template-columns:1fr!important}
-[data-r="pad"]{padding-left:24px!important;padding-right:24px!important;padding-top:72px!important;padding-bottom:72px!important}
+[data-r="pad"]{padding-left:24px!important;padding-right:24px!important;padding-top:80px!important;padding-bottom:80px!important}
 [data-r="pad2"]{padding-left:24px!important;padding-right:24px!important}
 [data-r="bar"]{padding-left:24px!important;padding-right:24px!important;height:72px!important}
 [data-r="heroPad"]{padding-left:24px!important;padding-right:24px!important}
@@ -64,10 +61,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 [data-r="pill"]{display:none!important}
 .mobile-full-btn { width: 100%; text-align: center; display: block; padding: 18px 24px !important; }
 .mobile-gap { gap: 12px !important; flex-direction: column !important; }
-.mobile-scroll-x { display: flex !important; overflow-x: auto !important; scroll-snap-type: x mandatory; margin-right: -24px; padding-right: 24px; padding-bottom: 20px; gap: 20px !important; scrollbar-width: none; background: transparent !important; border: none !important; }
+.mobile-scroll-x { display: flex !important; overflow-x: auto !important; scroll-snap-type: x mandatory; margin-right: -24px; padding-right: 24px; padding-bottom: 20px; gap: 16px !important; scrollbar-width: none; background: transparent !important; border: none !important; -webkit-mask-image: linear-gradient(to right, black 90%, transparent 100%); mask-image: linear-gradient(to right, black 90%, transparent 100%); }
 .mobile-scroll-x::-webkit-scrollbar { display: none; }
 .mobile-scroll-x > * { flex: 0 0 85% !important; scroll-snap-align: center; }
 .mobile-bottom-nav { display: block !important; }
+.mobile-only-hint { display: flex !important; }
 body { padding-bottom: calc(60px + env(safe-area-inset-bottom)) !important; }
 h1 { font-size: clamp(40px, 10vw, 108px) !important; line-height: 1 !important; margin-bottom: 20px !important;}
 h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; }
@@ -289,22 +287,41 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
       <h2 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(36px,4.6vw,64px);line-height:1.02;letter-spacing:-.035em;margin:26px 0 0">Especialidades jurídicas</h2>
     </div>
     <div data-anim style="border-top:1px solid rgba(14,17,22,.16)">
+      <style>
+        details > summary { list-style: none; outline: none; }
+        details > summary::-webkit-details-marker { display: none; }
+        details[open] .accordion-icon { transform: rotate(180deg); }
+      </style>
       <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
-        <div data-r="row" style="display:grid;grid-template-columns:100px 1.1fr 1.5fr 60px;gap:40px;align-items:baseline;padding:44px 0;border-bottom:1px solid rgba(14,17,22,.16);transition:background .4s,padding .4s" style-hover="background:rgba(255,255,255,.7)">
-          <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;color:rgba(14,17,22,.32)">{{ a.n }}</span>
-          <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(24px,2.3vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0">{{ a.t }}</h3>
-          <p style="font-size:15.5px;font-weight:300;line-height:1.75;color:#5C636E;margin:0">{{ a.d }}</p>
-          <span style="font-family:'Poppins',sans-serif;font-size:20px;color:#8E2B2B;text-align:right">→</span>
-        </div>
+        <details style="border-bottom:1px solid rgba(14,17,22,.16);transition:background .4s" style-hover="background:rgba(255,255,255,.7)">
+          <summary style="display:flex;align-items:center;gap:20px;padding:34px 0;cursor:pointer">
+            <span style="font-family:'Poppins',sans-serif;font-weight:300;font-size:17px;color:rgba(14,17,22,.32);flex:0 0 60px">{{ a.n }}</span>
+            <h3 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:clamp(20px,2.3vw,32px);line-height:1.12;letter-spacing:-.02em;margin:0;flex:1">{{ a.t }}</h3>
+            <div class="accordion-icon" style="transition:transform .3s;color:#0E1116">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </summary>
+          <div style="padding:0 0 44px 80px;margin-top:-10px" class="mobile-accordion-content">
+            <p style="font-size:15px;font-weight:300;line-height:1.75;color:#5C636E;margin:0 0 24px;max-width:700px">{{ a.d }}</p>
+            <a href="{{ waCita }}" target="_blank" rel="noopener" style="font-family:'Poppins',sans-serif;font-size:11.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#8E2B2B;text-decoration:none;display:inline-flex;align-items:center;gap:8px" style-hover="color:#A63A3A">Agendar Consulta <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          </div>
+        </details>
       </sc-for>
     </div>
-    <div data-anim data-r="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:40px;margin-top:90px">
+    <div data-anim style="margin-top:90px">
       <sc-for list="{{ fases }}" as="f" hint-placeholder-count="4">
-        <div>
-          <div style="width:34px;height:2px;background:#8E2B2B;margin-bottom:20px"></div>
-          <div style="font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;margin-bottom:10px">{{ f.t }}</div>
-          <div style="font-size:14.5px;font-weight:300;line-height:1.7;color:#5C636E">{{ f.d }}</div>
-        </div>
+        <details style="border-bottom:1px solid rgba(14,17,22,.16);transition:background .4s" style-hover="background:rgba(255,255,255,.7)">
+          <summary style="display:flex;align-items:center;gap:20px;padding:24px 0;cursor:pointer">
+            <span style="font-family:'Poppins',sans-serif;font-weight:600;font-size:24px;color:rgba(14,17,22,.2);flex:0 0 40px">{{ f.n }}</span>
+            <h4 style="font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;margin:0;flex:1">{{ f.t }}</h4>
+            <div class="accordion-icon" style="transition:transform .3s;color:#0E1116">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M19 9l-7 7-7-7"/></svg>
+            </div>
+          </summary>
+          <div style="padding:0 0 34px 60px;margin-top:-6px" class="mobile-accordion-content">
+            <p style="font-size:14.5px;font-weight:300;line-height:1.7;color:#5C636E;margin:0">{{ f.d }}</p>
+          </div>
+        </details>
       </sc-for>
     </div>
   </div>
@@ -430,7 +447,7 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
         </div>
       </sc-for>
       <div style="margin-top:30px; border:1px solid rgba(255,255,255,.12); border-radius: 8px; overflow:hidden">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.31295961601!2d-68.0069696!3d10.2363189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e805d762e8bf5eb%3A0x2a1ec094e9f73752!2sEl%20Vi%C3%B1edo%2C%20Valencia%202001%2C%20Carabobo!5e0!3m2!1ses-419!2sve!4v1700000000000!5m2!1ses-419!2sve" width="100%" height="200" style="border:0; display:block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://maps.google.com/maps?q=C.C.%20La%20Grieta,%20El%20Vi%C3%B1edo,%20Valencia&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0; display:block; filter:grayscale(1) contrast(1.1)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
     <div data-anim>
