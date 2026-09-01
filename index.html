@@ -140,17 +140,94 @@ h2 { font-size: clamp(32px, 8vw, 64px) !important; line-height: 1.1 !important; 
 </section>
 
 <sc-if value="{{ mostrarCinta }}" hint-placeholder-val="{{ true }}">
-<section style="background:#0E1116;border-bottom:1px solid rgba(255,255,255,.08);overflow:hidden;padding:34px 0">
-  <div style="display:flex;width:max-content;animation:ticker 40s linear infinite;filter:grayscale(1);opacity:.45">
-    <div style="display:flex;align-items:center;gap:100px;padding-right:100px">
-      <sc-for list="{{ credenciales }}" as="c" hint-placeholder-count="7">
-        <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C3CCD4;white-space:nowrap">{{ c }}</span>
-      </sc-for>
+<section style="background:#ffffff;border-bottom:1px solid rgba(0,0,0,.08);overflow:hidden;padding:34px 0">
+  <div style="display:flex;width:max-content;animation:ticker 40s linear infinite;filter:grayscale(1);opacity:.75">
+    <div style="display:flex;align-items:center;gap:100px;padding-right:100px;color:#0E1116">
+      
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-8M15 21v-8"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Playfair Display', Times, serif;font-size:15px;font-weight:600;letter-spacing:.02em">TSJ</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#555">Jurisprudencia</span>
+        </div>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v17M12 6H5.5L3 13h5l-2.5-7zM12 6h6.5L21 13h-5l2.5-7z"/><path d="M8 21h8"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Colegio</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9.5px;letter-spacing:.12em;color:#555">Abogados Carabobo</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Playfair Display', Times, serif;font-size:16px;font-weight:700">INCP UCV</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:#555">Ciencias Penales</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:-.03em">World Compliance</span>
+          <span style="font-family:'Poppins',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:#555">Association</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Cámara de Comercio</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.1em;color:#555">Valencia</span>
+        </div>
+      </div>
+
     </div>
-    <div style="display:flex;align-items:center;gap:100px;padding-right:100px" aria-hidden="true">
-      <sc-for list="{{ credenciales }}" as="c" hint-placeholder-count="7">
-        <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#C3CCD4;white-space:nowrap">{{ c }}</span>
-      </sc-for>
+    
+    <div style="display:flex;align-items:center;gap:100px;padding-right:100px;color:#0E1116" aria-hidden="true">
+      
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-8M15 21v-8"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Playfair Display', Times, serif;font-size:15px;font-weight:600;letter-spacing:.02em">TSJ</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:#555">Jurisprudencia</span>
+        </div>
+      </div>
+      
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v17M12 6H5.5L3 13h5l-2.5-7zM12 6h6.5L21 13h-5l2.5-7z"/><path d="M8 21h8"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Colegio</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9.5px;letter-spacing:.12em;color:#555">Abogados Carabobo</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Playfair Display', Times, serif;font-size:16px;font-weight:700">INCP UCV</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:#555">Ciencias Penales</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;letter-spacing:-.03em">World Compliance</span>
+          <span style="font-family:'Poppins',sans-serif;font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:#555">Association</span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:14px">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <div style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Cámara de Comercio</span>
+          <span style="font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:.1em;color:#555">Valencia</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
