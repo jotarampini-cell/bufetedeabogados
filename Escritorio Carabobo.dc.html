@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--serif:'Cormorant Garamond',Georgia,serif;--sans:'Source Sans 3',system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:#F6F4F1;font-family:var(--sans);color:#1B1E24;-webkit-font-smoothing:antialiased}
+a{color:#8E2B2B;text-decoration:none}
+a:hover{color:#B2585A}
+img{display:block;max-width:100%}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+body{overflow-x:hidden}
+@media (max-width:1180px){
+[data-r="nav"] a:not(:last-child){display:none!important}
+[data-r="heroPanel"]{display:none!important}
+[data-r="g4"],[data-r="g3"]{grid-template-columns:repeat(2,1fr)!important}
+[data-r="crow"]{grid-template-columns:56px 1fr!important;gap:16px!important}
+[data-r="crow"] p,[data-r="crow"] div{grid-column:2}
+}
+@media (max-width:980px){
+[data-r="g2"]{grid-template-columns:1fr!important;gap:44px}
+[data-r="crow"] div{text-align:left!important}
+}
+@media (max-width:680px){
+[data-r="g4"],[data-r="g3"]{grid-template-columns:1fr!important}
+}
+</style>
+</helmet>
+
+<div style="font-family:var(--sans)">
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(22,25,31,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.09)">
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px;height:78px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <a href="#inicio" style="display:flex;align-items:center;gap:12px;color:#fff">
+      <img src="assets/logo-carabobo.png" alt="Escritorio Carabobo" style="width:42px;height:42px;object-fit:cover;border-radius:2px">
+      <span style="display:flex;flex-direction:column;line-height:1.05">
+        <span style="font-size:9.5px;letter-spacing:.34em;color:#8FA0B0;text-transform:uppercase">Escritorio</span>
+        <span style="font-size:15px;letter-spacing:.22em;color:#F6F4F1;text-transform:uppercase;font-weight:500">Carabobo</span>
+      </span>
+    </a>
+    <nav data-r="nav" style="display:flex;align-items:center;gap:34px;flex-wrap:wrap">
+      <a href="#firma" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">La Firma</a>
+      <a href="#areas" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">Áreas de práctica</a>
+      <a href="#trayectoria" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">Trayectoria</a>
+      <a href="#equipo" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">Equipo</a>
+      <a href="#actualidad" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">Actualidad</a>
+      <a href="#contacto" style="font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:#C3CCD4" style-hover="color:#fff">Contacto</a>
+      <a href="{{ waCita }}" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#F6F4F1;border:1px solid rgba(255,255,255,.32);padding:11px 20px;white-space:nowrap" style-hover="background:#8E2B2B;border-color:#8E2B2B">Agendar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<sc-if value="{{ heroA }}" hint-placeholder-val="{{ true }}">
+<section id="inicio" style="position:relative;background:#16191F;overflow:hidden">
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(143,160,176,.05) 0 2px,transparent 2px 9px)"></div>
+  <div data-r="heroPanel" style="position:absolute;right:-60px;top:0;bottom:0;width:46%;background:linear-gradient(180deg,#232830,#1A1D23);clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);display:flex;align-items:flex-end;justify-content:center;padding:0 0 44px">
+    <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;color:rgba(195,204,212,.45);text-transform:uppercase">fotografía · fachada / despacho</span>
+  </div>
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:150px 32px 130px">
+    <div style="max-width:660px;animation:rise .8s ease both">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:34px">
+        <span style="width:44px;height:1px;background:#8E2B2B"></span>
+        <span style="font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#8FA0B0">Abogados penalistas · Valencia, Venezuela</span>
+      </div>
+      <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.6vw,74px);line-height:1.03;letter-spacing:-.015em;color:#F6F4F1;margin:0 0 28px;text-wrap:pretty">Rigor, confidencialidad y <em style="font-style:italic;color:#C88C8C">defensa penal</em> integral.</h1>
+      <p style="font-family:var(--serif);font-size:24px;font-style:italic;font-weight:300;color:#C3CCD4;margin:0 0 22px;max-width:540px">Salvaguardamos sus derechos y su patrimonio con la máxima discreción.</p>
+      <p style="font-size:16.5px;line-height:1.72;color:rgba(195,204,212,.72);margin:0 0 44px;max-width:520px">En nuestra firma, la experiencia jurídica se convierte en estrategia, y la estrategia en resultados definitivos ante el sistema de justicia nacional.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <a href="{{ waCita }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;background:#8E2B2B;color:#fff;padding:18px 34px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:#A4373A">Agendar consulta jurídica</a>
+        <a href="{{ waUrg }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:12px;color:#F6F4F1;border:1px solid rgba(255,255,255,.28);padding:18px 30px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="border-color:#8FA0B0">Atención prioritaria 24/7</a>
+      </div>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ heroB }}" hint-placeholder-val="{{ false }}">
+<section id="inicio" data-r="g2" style="display:grid;grid-template-columns:1.05fr .95fr;min-height:640px;background:#16191F">
+  <div style="padding:130px 64px 120px;display:flex;flex-direction:column;justify-content:center;animation:rise .8s ease both">
+    <span style="font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#8FA0B0;margin-bottom:30px">Abogados penalistas · Valencia, Venezuela</span>
+    <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(38px,4.8vw,62px);line-height:1.06;color:#F6F4F1;margin:0 0 26px">Rigor, confidencialidad y <em style="font-style:italic;color:#C88C8C">defensa penal</em> integral.</h1>
+    <div style="width:56px;height:2px;background:#8E2B2B;margin:0 0 26px"></div>
+    <p style="font-size:16.5px;line-height:1.75;color:rgba(195,204,212,.75);margin:0 0 40px;max-width:520px">Salvaguardamos sus derechos y su patrimonio con la máxima discreción. La experiencia jurídica se convierte en estrategia, y la estrategia en resultados definitivos.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px">
+      <a href="{{ waCita }}" target="_blank" rel="noopener" style="background:#8E2B2B;color:#fff;padding:18px 34px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:#A4373A">Agendar consulta jurídica</a>
+      <a href="{{ waUrg }}" target="_blank" rel="noopener" style="color:#F6F4F1;border:1px solid rgba(255,255,255,.28);padding:18px 30px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="border-color:#8FA0B0">Atención prioritaria 24/7</a>
+    </div>
+  </div>
+  <div style="position:relative;background:#22262E;background-image:repeating-linear-gradient(135deg,rgba(143,160,176,.08) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:34px">
+    <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;color:rgba(195,204,212,.5);text-transform:uppercase">fotografía vertical · socios en despacho</span>
+  </div>
+</section>
+</sc-if>
+
+<sc-if value="{{ heroC }}" hint-placeholder-val="{{ false }}">
+<section id="inicio" style="background:#F6F4F1;border-bottom:1px solid rgba(27,30,36,.1)">
+  <div style="max-width:1000px;margin:0 auto;padding:132px 32px 96px;text-align:center;animation:rise .8s ease both">
+    <span style="font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#8E2B2B">Abogados penalistas · Desde 1996</span>
+    <h1 style="font-family:var(--serif);font-weight:300;font-size:clamp(40px,6vw,78px);line-height:1.04;color:#16191F;margin:26px 0 24px;text-wrap:balance">Rigor, confidencialidad y <em style="font-style:italic;color:#8E2B2B">defensa penal</em> integral.</h1>
+    <p style="font-size:17px;line-height:1.75;color:#5C636E;max-width:640px;margin:0 auto 40px">Salvaguardamos sus derechos y su patrimonio con la máxima discreción. En nuestra firma, la experiencia jurídica se convierte en estrategia, y la estrategia en resultados definitivos ante el sistema de justicia nacional.</p>
+    <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-bottom:64px">
+      <a href="{{ waCita }}" target="_blank" rel="noopener" style="background:#16191F;color:#fff;padding:18px 34px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:#8E2B2B">Agendar consulta jurídica</a>
+      <a href="{{ waUrg }}" target="_blank" rel="noopener" style="color:#16191F;border:1px solid rgba(27,30,36,.25);padding:18px 30px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="border-color:#8E2B2B;color:#8E2B2B">Atención prioritaria 24/7</a>
+    </div>
+    <div style="height:330px;background:#E6E2DD;background-image:repeating-linear-gradient(135deg,rgba(27,30,36,.06) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:26px">
+      <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;color:rgba(27,30,36,.45);text-transform:uppercase">fotografía panorámica · sala de juntas</span>
+    </div>
+  </div>
+</section>
+</sc-if>
+
+<section style="background:#22262E;border-top:1px solid rgba(255,255,255,.07)">
+  <div style="max-width:1240px;margin:0 auto;padding:34px 32px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+    <div style="display:flex;gap:56px;flex-wrap:wrap">
+      <div><div style="font-family:var(--serif);font-size:34px;color:#F6F4F1;line-height:1">1996</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8FA0B0;margin-top:6px">Año de fundación</div></div>
+      <div><div style="font-family:var(--serif);font-size:34px;color:#F6F4F1;line-height:1">+500</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8FA0B0;margin-top:6px">Causas atendidas</div></div>
+      <div><div style="font-family:var(--serif);font-size:34px;color:#F6F4F1;line-height:1">Nacional</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8FA0B0;margin-top:6px">Alcance de actuación</div></div>
+      <div><div style="font-family:var(--serif);font-size:34px;color:#F6F4F1;line-height:1">24/7</div><div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8FA0B0;margin-top:6px">Atención de urgencias</div></div>
+    </div>
+    <div style="font-size:12.5px;line-height:1.6;color:rgba(195,204,212,.65);max-width:250px;border-left:1px solid rgba(255,255,255,.14);padding-left:20px">Toda consulta se atiende bajo estricto secreto profesional.</div>
+  </div>
+</section>
+
+<section id="firma" style="background:#F6F4F1">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px;display:grid;grid-template-columns:1fr 1.15fr;gap:88px;align-items:start" data-r="g2">
+    <div style="position:relative">
+      <div style="height:520px;background:#E6E2DD;background-image:repeating-linear-gradient(135deg,rgba(27,30,36,.06) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:24px">
+        <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.22em;color:rgba(27,30,36,.45);text-transform:uppercase">retrato corporativo · socio director</span>
+      </div>
+      <div style="position:absolute;right:-28px;bottom:-28px;width:170px;height:170px;background:#16191F;display:flex;align-items:center;justify-content:center">
+        <svg viewBox="0 0 160 160" style="width:150px;height:150px">
+          <defs><path id="sello-firma" d="M80,80 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"></path></defs>
+          <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(195,204,212,.35)" stroke-width="1"></circle>
+          <circle cx="80" cy="80" r="46" fill="none" stroke="#8E2B2B" stroke-width="1"></circle>
+          <text fill="#C3CCD4" style="font-size:9px;letter-spacing:.28em;font-family:var(--sans);text-transform:uppercase"><textPath href="#sello-firma" startOffset="0%">· Secreto profesional · Defensa penal integral </textPath></text>
+          <text x="80" y="76" text-anchor="middle" fill="#F6F4F1" style="font-family:var(--serif);font-size:26px">EC</text>
+          <text x="80" y="96" text-anchor="middle" fill="#8FA0B0" style="font-size:8.5px;letter-spacing:.28em;font-family:var(--sans)">1996</text>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+        <span style="width:34px;height:1px;background:#8E2B2B"></span>
+        <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8E2B2B">Quiénes somos</span>
+      </div>
+      <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#16191F;margin:0 0 28px">La <em style="font-style:italic;color:#8E2B2B">Firma</em></h2>
+      <p style="font-size:17px;line-height:1.8;color:#3C424C;margin:0 0 20px;max-width:600px">Somos un escritorio jurídico especializado en derecho penal con sólida presencia y alcance en todo el territorio nacional.</p>
+      <p style="font-size:16px;line-height:1.8;color:#5C636E;margin:0 0 44px;max-width:600px">Nuestra misión es brindar una representación judicial de primer nivel y una asesoría estratégica basada en la ética, el conocimiento profundo de la ley y el compromiso absoluto con nuestros representados.</p>
+      <div data-r="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(27,30,36,.12);border:1px solid rgba(27,30,36,.12)">
+        <sc-for list="{{ valores }}" as="v" hint-placeholder-count="5">
+          <div style="background:#F6F4F1;padding:26px 24px">
+            <div style="font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#8E2B2B;margin-bottom:10px">{{ v.t }}</div>
+            <div style="font-size:14.5px;line-height:1.65;color:#5C636E">{{ v.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas" style="background:#16191F">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:60px;flex-wrap:wrap;margin-bottom:62px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+          <span style="width:34px;height:1px;background:#8E2B2B"></span>
+          <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8FA0B0">Áreas de práctica</span>
+        </div>
+        <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#F6F4F1;margin:0;max-width:620px">Especialidades <em style="font-style:italic;color:#C88C8C">jurídicas</em></h2>
+      </div>
+      <p style="font-size:15.5px;line-height:1.75;color:rgba(195,204,212,.7);max-width:400px;margin:0">Cuatro frentes de trabajo que cubren la totalidad del proceso penal, desde la prevención corporativa hasta la casación.</p>
+    </div>
+    <div data-r="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1)">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+        <div style="background:#16191F;padding:44px 30px 40px;min-height:330px;display:flex;flex-direction:column" style-hover="background:#1E2229">
+          <span style="font-family:var(--serif);font-size:30px;color:rgba(143,160,176,.4);line-height:1">{{ a.n }}</span>
+          <h3 style="font-family:var(--serif);font-weight:400;font-size:25px;line-height:1.25;color:#F6F4F1;margin:26px 0 16px">{{ a.t }}</h3>
+          <p style="font-size:14.5px;line-height:1.7;color:rgba(195,204,212,.68);margin:0">{{ a.d }}</p>
+          <div style="flex:1"></div>
+          <div style="margin-top:26px;height:2px;width:34px;background:#8E2B2B"></div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="margin-top:74px;border-top:1px solid rgba(255,255,255,.1);padding-top:44px">
+      <div style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8FA0B0;margin-bottom:32px">Asistencia en todas las fases del proceso</div>
+      <div data-r="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:26px">
+        <sc-for list="{{ fases }}" as="f" hint-placeholder-count="4">
+          <div style="border-top:2px solid #8E2B2B;padding-top:18px">
+            <div style="font-family:var(--serif);font-size:22px;color:#F6F4F1;margin-bottom:8px">{{ f.t }}</div>
+            <div style="font-size:14px;line-height:1.65;color:rgba(195,204,212,.62)">{{ f.d }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trayectoria" style="background:#EDEAE5">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:60px;flex-wrap:wrap;margin-bottom:56px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+          <span style="width:34px;height:1px;background:#8E2B2B"></span>
+          <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8E2B2B">Trayectoria</span>
+        </div>
+        <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#16191F;margin:0;max-width:640px">Jurisprudencia de <em style="font-style:italic;color:#8E2B2B">referencia</em></h2>
+      </div>
+      <p style="font-size:15.5px;line-height:1.75;color:#5C636E;max-width:420px;margin:0">Casos gestionados con absoluta reserva. Presentamos el alcance de la firma por tipología, sin identificar a nuestros representados.</p>
+    </div>
+
+    <sc-if value="{{ casosLista }}" hint-placeholder-val="{{ true }}">
+    <div style="border-top:1px solid rgba(27,30,36,.16)">
+      <sc-for list="{{ tipologias }}" as="c" hint-placeholder-count="3">
+        <div data-r="crow" style="border-bottom:1px solid rgba(27,30,36,.16);padding:40px 0;display:grid;grid-template-columns:80px 1.1fr 1.4fr 160px;gap:34px;align-items:start" style-hover="background:rgba(255,255,255,.55)">
+          <span style="font-family:var(--serif);font-size:34px;color:rgba(27,30,36,.24);line-height:1">{{ c.n }}</span>
+          <h3 style="font-family:var(--serif);font-weight:400;font-size:29px;line-height:1.2;color:#16191F;margin:0">{{ c.t }}</h3>
+          <p style="font-size:15px;line-height:1.75;color:#5C636E;margin:0">{{ c.d }}</p>
+          <div style="text-align:right">
+            <div style="font-family:var(--serif);font-size:30px;color:#8E2B2B;line-height:1">{{ c.k }}</div>
+            <div style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#5C636E;margin-top:6px">{{ c.kl }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ casosGrid }}" hint-placeholder-val="{{ false }}">
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <sc-for list="{{ tipologias }}" as="c" hint-placeholder-count="3">
+        <div style="background:#F6F4F1;border:1px solid rgba(27,30,36,.12);padding:38px 32px 34px;display:flex;flex-direction:column;min-height:300px" style-hover="border-color:#8E2B2B">
+          <span style="font-family:var(--serif);font-size:30px;color:rgba(27,30,36,.24);line-height:1">{{ c.n }}</span>
+          <h3 style="font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.22;color:#16191F;margin:22px 0 14px">{{ c.t }}</h3>
+          <p style="font-size:14.5px;line-height:1.7;color:#5C636E;margin:0">{{ c.d }}</p>
+          <div style="flex:1"></div>
+          <div style="margin-top:26px;padding-top:18px;border-top:1px solid rgba(27,30,36,.12);display:flex;align-items:baseline;gap:10px">
+            <span style="font-family:var(--serif);font-size:26px;color:#8E2B2B">{{ c.k }}</span>
+            <span style="font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#5C636E">{{ c.kl }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
+
+    <p style="margin:38px 0 0;font-size:13px;line-height:1.7;color:#6B717B;max-width:720px">Los resultados referidos corresponden a causas concluidas y se exponen de forma agregada. Ninguna información identifica a clientes, expedientes ni contrapartes, en cumplimiento del secreto profesional.</p>
+  </div>
+</section>
+
+<section id="equipo" style="background:#F6F4F1">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+      <span style="width:34px;height:1px;background:#8E2B2B"></span>
+      <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8E2B2B">Equipo</span>
+    </div>
+    <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#16191F;margin:0 0 56px">Socios y <em style="font-style:italic;color:#8E2B2B">especialistas</em></h2>
+    <div data-r="g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+      <sc-for list="{{ equipo }}" as="p" hint-placeholder-count="4">
+        <div>
+          <div style="height:320px;background:#E6E2DD;background-image:repeating-linear-gradient(135deg,rgba(27,30,36,.06) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:18px;margin-bottom:20px">
+            <span style="font:400 9.5px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.18em;color:rgba(27,30,36,.45);text-transform:uppercase">retrato corporativo</span>
+          </div>
+          <div style="font-family:var(--serif);font-size:24px;color:#16191F;line-height:1.2">{{ p.n }}</div>
+          <div style="font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#8E2B2B;margin:10px 0 12px">{{ p.r }}</div>
+          <p style="font-size:14px;line-height:1.7;color:#5C636E;margin:0">{{ p.d }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="actualidad" style="background:#16191F">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:60px;flex-wrap:wrap;margin-bottom:56px">
+      <div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+          <span style="width:34px;height:1px;background:#8E2B2B"></span>
+          <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8FA0B0">Actualidad jurídica</span>
+        </div>
+        <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#F6F4F1;margin:0">Opinión y <em style="font-style:italic;color:#C88C8C">análisis</em></h2>
+      </div>
+      <p style="font-size:15.5px;line-height:1.75;color:rgba(195,204,212,.7);max-width:400px;margin:0">Análisis de reformas legales y noticias de actualidad jurídica publicados por los abogados de la firma.</p>
+    </div>
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px">
+      <sc-for list="{{ articulos }}" as="a" hint-placeholder-count="3">
+        <a href="#actualidad" style="display:block;background:#1E2229;border:1px solid rgba(255,255,255,.1);color:inherit" style-hover="border-color:rgba(200,140,140,.45)">
+          <div style="height:190px;background:#22262E;background-image:repeating-linear-gradient(135deg,rgba(143,160,176,.09) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:16px">
+            <span style="font:400 9.5px/1 ui-monospace,Menlo,monospace;letter-spacing:.18em;color:rgba(195,204,212,.45);text-transform:uppercase">imagen del artículo</span>
+          </div>
+          <div style="padding:28px 26px 26px">
+            <div style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8FA0B0;margin-bottom:14px">{{ a.c }}</div>
+            <h3 style="font-family:var(--serif);font-weight:400;font-size:23px;line-height:1.3;color:#F6F4F1;margin:0 0 14px">{{ a.t }}</h3>
+            <p style="font-size:14px;line-height:1.7;color:rgba(195,204,212,.65);margin:0 0 22px">{{ a.d }}</p>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(195,204,212,.5)"><span>{{ a.f }}</span><span style="color:#C88C8C">Leer más →</span></div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" style="background:#F6F4F1">
+  <div style="max-width:1240px;margin:0 auto;padding:118px 32px">
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px">
+      <span style="width:34px;height:1px;background:#8E2B2B"></span>
+      <span style="font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:#8E2B2B">Contacto</span>
+    </div>
+    <h2 style="font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.08;color:#16191F;margin:0 0 14px">Canales de atención <em style="font-style:italic;color:#8E2B2B">preferencial</em></h2>
+    <p style="font-size:16px;line-height:1.75;color:#5C636E;margin:0 0 56px;max-width:560px">Atención personalizada y confidencial en cada consulta. Para emergencias penales fuera del horario de oficina, escriba directamente por WhatsApp.</p>
+    <div data-r="g2" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+      <div>
+        <sc-for list="{{ contacto }}" as="c" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:130px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid rgba(27,30,36,.12)">
+            <span style="font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#8E2B2B;padding-top:3px">{{ c.l }}</span>
+            <span style="font-size:15.5px;line-height:1.65;color:#1B1E24">{{ c.v }}</span>
+          </div>
+        </sc-for>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+          <a href="{{ waCita }}" target="_blank" rel="noopener" style="background:#16191F;color:#fff;padding:17px 30px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="background:#8E2B2B">Agendar consulta</a>
+          <a href="{{ waUrg }}" target="_blank" rel="noopener" style="color:#16191F;border:1px solid rgba(27,30,36,.25);padding:17px 30px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase" style-hover="border-color:#8E2B2B;color:#8E2B2B">Escribir por WhatsApp</a>
+        </div>
+      </div>
+      <div style="height:420px;background:#E6E2DD;background-image:repeating-linear-gradient(135deg,rgba(27,30,36,.06) 0 2px,transparent 2px 11px);display:flex;align-items:flex-end;padding:22px">
+        <span style="font:400 10px/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;color:rgba(27,30,36,.45);text-transform:uppercase">mapa · Urb. El Viñedo, Valencia</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#8E2B2B">
+  <div style="max-width:1240px;margin:0 auto;padding:76px 32px;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap">
+    <div>
+      <h2 style="font-family:var(--serif);font-weight:300;font-size:42px;line-height:1.12;color:#fff;margin:0 0 12px">¿Enfrenta un proceso penal?</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:rgba(255,255,255,.82);margin:0;max-width:560px">La asesoría oportuna es determinante. Solicite una evaluación confidencial de su caso.</p>
+    </div>
+    <a href="{{ waCita }}" target="_blank" rel="noopener" style="background:#16191F;color:#fff;padding:20px 38px;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap" style-hover="background:#0F1216">Solicitar consulta confidencial</a>
+  </div>
+</section>
+
+<footer style="background:#16191F;border-top:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1240px;margin:0 auto;padding:76px 32px 40px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:60px" data-r="g3">
+    <div>
+      <img src="assets/logo-carabobo.png" alt="Escritorio Carabobo" style="width:64px;height:64px;object-fit:cover;margin-bottom:22px">
+      <p style="font-size:14px;line-height:1.75;color:rgba(195,204,212,.65);margin:0;max-width:340px">Escritorio jurídico especializado en derecho penal, fundado en 1996. Representación judicial y asesoría estratégica en todo el territorio nacional.</p>
+    </div>
+    <div>
+      <div style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8FA0B0;margin-bottom:20px">Navegación</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <a href="#firma" style="font-size:14px;color:rgba(195,204,212,.75)" style-hover="color:#fff">La Firma</a>
+        <a href="#areas" style="font-size:14px;color:rgba(195,204,212,.75)" style-hover="color:#fff">Áreas de práctica</a>
+        <a href="#trayectoria" style="font-size:14px;color:rgba(195,204,212,.75)" style-hover="color:#fff">Trayectoria</a>
+        <a href="#equipo" style="font-size:14px;color:rgba(195,204,212,.75)" style-hover="color:#fff">Equipo</a>
+        <a href="#actualidad" style="font-size:14px;color:rgba(195,204,212,.75)" style-hover="color:#fff">Actualidad jurídica</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8FA0B0;margin-bottom:20px">Contacto</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.6;color:rgba(195,204,212,.75)">
+        <span>Urb. El Viñedo, C.C. La Grieta,<br>Piso 2, Oficina 2N-15. Valencia.</span>
+        <a href="{{ waUrg }}" target="_blank" rel="noopener" style="color:rgba(195,204,212,.75)" style-hover="color:#fff">+58 414-481-0088</a>
+        <a href="mailto:ecarabobo@gmail.com" style="color:rgba(195,204,212,.75)" style-hover="color:#fff">ecarabobo@gmail.com</a>
+        <a href="https://instagram.com/ecarabobo" target="_blank" rel="noopener" style="color:rgba(195,204,212,.75)" style-hover="color:#fff">@ecarabobo</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1240px;margin:0 auto;padding:0 32px 56px">
+    <div style="border-top:1px solid rgba(255,255,255,.08);padding-top:26px;display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <p style="font-size:11.5px;line-height:1.75;color:rgba(195,204,212,.45);margin:0;max-width:760px">Aviso legal: el contenido de este sitio tiene carácter informativo y no constituye asesoría jurídica ni crea relación abogado-cliente. Cada caso requiere análisis particular. Las comunicaciones enviadas a través de estos canales se atienden bajo secreto profesional.</p>
+      <span style="font-size:11.5px;color:rgba(195,204,212,.45)">© 2026 Escritorio Carabobo</span>
+    </div>
+  </div>
+</footer>
+
+<a href="{{ waUrg }}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" style="position:fixed;right:26px;bottom:26px;z-index:60;display:flex;align-items:center;gap:12px;background:#16191F;color:#fff;padding:15px 24px;border-radius:999px;box-shadow:0 12px 34px rgba(0,0,0,.28);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase" style-hover="background:#8E2B2B">
+  <span style="width:9px;height:9px;border-radius:50%;background:#5BD07A"></span>WhatsApp 24/7
+</a>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroVariant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Diagonal&quot;,&quot;Dividido&quot;,&quot;Claro centrado&quot;],&quot;default&quot;:&quot;Diagonal&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Variantes&quot;},&quot;typePairing&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Clásica&quot;,&quot;Editorial&quot;],&quot;default&quot;:&quot;Clásica&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Variantes&quot;},&quot;casosLayout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Índice&quot;,&quot;Fichas&quot;],&quot;default&quot;:&quot;Índice&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Variantes&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.applyFonts(); }
+  componentDidUpdate() { this.applyFonts(); }
+  applyFonts() {
+    const pairing = this.props.typePairing ?? "Clásica";
+    const map = {
+      "Clásica": ["'Cormorant Garamond',Georgia,serif", "'Source Sans 3',system-ui,sans-serif"],
+      "Editorial": ["'Spectral',Georgia,serif", "'Archivo',system-ui,sans-serif"]
+    };
+    const [serif, sans] = map[pairing] || map["Clásica"];
+    const r = document.documentElement.style;
+    r.setProperty("--serif", serif);
+    r.setProperty("--sans", sans);
+  }
+  renderVals() {
+    const hero = this.props.heroVariant ?? "Diagonal";
+    const casos = this.props.casosLayout ?? "Índice";
+    const tel = "584144810088";
+    return {
+      heroA: hero === "Diagonal",
+      heroB: hero === "Dividido",
+      heroC: hero === "Claro centrado",
+      casosLista: casos === "Índice",
+      casosGrid: casos === "Fichas",
+      waCita: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Buen día. Deseo agendar una consulta jurídica con Escritorio Carabobo."),
+      waUrg: "https://wa.me/" + tel + "?text=" + encodeURIComponent("Buen día. Requiero atención prioritaria en materia penal."),
+      valores: [
+        { t: "Confidencialidad", d: "Cada expediente se maneja bajo reserva absoluta y acceso restringido." },
+        { t: "Rigor técnico", d: "Estrategia sustentada en doctrina, jurisprudencia y ley vigente." },
+        { t: "Ética", d: "Actuación íntegra en todas las etapas del proceso." },
+        { t: "Exclusividad", d: "Cartera limitada para garantizar dedicación real a cada causa." },
+        { t: "Lealtad", d: "Compromiso absoluto con los intereses del representado." }
+      ],
+      areas: [
+        { n: "01", t: "Derecho penal corporativo y económico", d: "Delitos financieros y de cuello blanco: defensa de empresas, directivos y administradores frente a investigaciones patrimoniales." },
+        { n: "02", t: "Defensa penal judicial y litigios complejos", d: "Representación técnica en causas de alta complejidad, en todas las instancias del sistema de justicia." },
+        { n: "03", t: "Asesoría preventiva y compliance", d: "Programas de cumplimiento normativo y evaluación de riesgo penal antes de que exista un procedimiento." },
+        { n: "04", t: "Casación y amparo constitucional", d: "Recursos ante las instancias superiores y acciones de amparo en defensa de garantías fundamentales." }
+      ],
+      fases: [
+        { t: "Preparatoria", d: "Asistencia desde el primer acto de investigación y control de la actuación fiscal." },
+        { t: "Intermedia", d: "Depuración de la acusación, excepciones y promoción de pruebas." },
+        { t: "Juicio", d: "Defensa técnica en debate oral y público, con estrategia probatoria definida." },
+        { t: "Ejecución", d: "Seguimiento de la pena, beneficios procesales y fórmulas alternativas." }
+      ],
+      tipologias: [
+        { n: "01", t: "Delitos financieros y de cuello blanco", d: "Estafas agravadas, apropiación indebida, legitimación de capitales y delitos contra el orden económico. Defensa de personas naturales y jurídicas con enfoque patrimonial y reputacional.", k: "+120", kl: "Causas atendidas" },
+        { n: "02", t: "Delitos comunes", d: "Delitos contra las personas, la propiedad y la libertad. Defensa técnica desde la aprehensión hasta la sentencia definitiva, con atención de urgencias las 24 horas.", k: "+260", kl: "Causas atendidas" },
+        { n: "03", t: "Casación y amparo constitucional", d: "Recursos de casación penal y acciones de amparo por violación de garantías. Revisión de sentencias y control constitucional de la actuación judicial.", k: "+40", kl: "Recursos ejercidos" }
+      ],
+      equipo: [
+        { n: "Socio Director", r: "Derecho penal económico", d: "Perfil profesional: trayectoria académica, publicaciones y experiencia ante los tribunales del país." },
+        { n: "Socia Directora", r: "Litigio penal complejo", d: "Perfil profesional: trayectoria académica, publicaciones y experiencia ante los tribunales del país." },
+        { n: "Abogado Especialista", r: "Compliance y prevención", d: "Perfil profesional: formación de posgrado y experiencia en programas de cumplimiento." },
+        { n: "Abogada Especialista", r: "Casación y amparo", d: "Perfil profesional: formación de posgrado y experiencia en instancias superiores." }
+      ],
+      articulos: [
+        { c: "Análisis", t: "El recurso de amparo constitucional como defensa penal", d: "Una de las herramientas más poderosas en la defensa penal. Su aplicación práctica en el foro venezolano.", f: "26 Ago 2026" },
+        { c: "Doctrina", t: "Delitos financieros e ilícitos cambiarios: defensa especializada", d: "Los delitos de naturaleza financiera requieren una defensa técnica altamente especializada.", f: "26 Ago 2026" },
+        { c: "Reformas", t: "Responsabilidad penal del empleador: marco legal vigente", d: "Disposiciones del ordenamiento venezolano que regulan la responsabilidad penal del empleador.", f: "26 Ago 2026" }
+      ],
+      contacto: [
+        { l: "Oficinas", v: "Urb. El Viñedo, C.C. La Grieta, Piso 2, Oficina 2N-15. Valencia, Venezuela." },
+        { l: "WhatsApp", v: "+58 414-481-0088" },
+        { l: "Correo", v: "ecarabobo@gmail.com" },
+        { l: "Instagram", v: "@ecarabobo" },
+        { l: "Horario", v: "Lunes a viernes, 8:30 a 17:30. Urgencias penales atendidas 24/7." }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
